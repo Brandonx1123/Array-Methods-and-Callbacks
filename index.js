@@ -38,9 +38,10 @@ Implement a higher-order function called `getYears` that accepts the callback fu
 
 function getYears(data,getFinalsCB) {
     const years = [];
-    getFinalsCB(data).foreach(function(item){
-        years.push(item.years);
-    });
+    getFinalsCB(data).forEach(function(item){
+        years.push(item.Year);
+    });   
+    console.log(years);
 return years
 }
 
@@ -50,13 +51,16 @@ return years
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(getAverageGoals,data) {
+function getWinners(data, getFinalsCB) {
 const winners = [];
-
-
-
+getFinalsCB(data).forEach(function(item){
+if (item['Home Team Goals'] > item['Away Team Goals']){
+    winners.push(item['Home Team Name'])}
+ else {
+    winners.push(item['Away Team Name'])}
+});
+return winners;
 }
-
 
 
 
@@ -68,8 +72,8 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(data,getWinnersCB, getYearsCB) {
+    let 
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
