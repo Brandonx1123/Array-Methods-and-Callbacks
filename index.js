@@ -73,7 +73,14 @@ Parameters:
  */
 
 function getWinnersByYear(data,getWinnersCB, getYearsCB) {
-    let 
+    let winners = getWinnersCB (data,getFinals);
+    let years = getYearsCB (data,getFinals);
+
+    const ultwinners= winners.map(function(item, index){
+        return `In ${years[index]}, ${item} won the world cup!`
+
+    });
+    return ultwinners;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
